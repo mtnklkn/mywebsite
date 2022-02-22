@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Making builds
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v1
       - name: Make Build
         uses: jzweifel/gatsby-cli-github-action@master
         with:
