@@ -22,13 +22,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14.15
+      - name: Install Project Dependencies
+        run: npm ci
       - name: Install Gatsby CLI
         run: npm install -g gatsby-cli@3.4.0
-      - uses: actions/checkout@master
       - name: Make Build
-        uses: jzweifel/gatsby-cli-github-action@master
-        with:
-          gatsby-arg: build
+      - name: Build
+        run: gatsby build
+      - name: Verify build
+        run: ls -la public
+
+  #      uses: jzweifel/gatsby-cli-github-action@master
+  #      with:
+ #         gatsby-arg: build
       - name: upload artifacts
         uses: actions/upload-artifact@v2
         with:
