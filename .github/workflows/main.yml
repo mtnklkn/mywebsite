@@ -26,12 +26,11 @@ jobs:
         run: npm ci
       - name: Install Gatsby CLI
         run: npm install -g gatsby-cli@3.4.0
-      - name: Make Build
       - name: Build
         run: gatsby build
       - name: Verify build
         run: ls -la public
-
+#      - name: Make Build
   #      uses: jzweifel/gatsby-cli-github-action@master
   #      with:
  #         gatsby-arg: build
