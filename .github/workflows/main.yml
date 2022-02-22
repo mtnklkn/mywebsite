@@ -21,7 +21,8 @@ jobs:
       - name: Make Build
         uses: jzweifel/gatsby-cli-github-action@master
         with:
-          gatsby-arg: build
+          - gatsby-arg: build
+          - node-version: 12
       
       - name: upload artifacts
         uses: actions/upload-artifact@v2
@@ -39,7 +40,7 @@ jobs:
       - name: Test1
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 12
       - run: npm install --global mocha
       - run: npm test
 
@@ -53,7 +54,7 @@ jobs:
       - name: Test1
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 12
       - run: npm install mocha chai --save-dev
       - run: npm test
 
@@ -67,7 +68,7 @@ jobs:
       - name: Test3
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 12
       - run: npm install --global mocha
       - run: npm install unit.js
       - run: npm test
