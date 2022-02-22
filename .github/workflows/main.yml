@@ -18,6 +18,12 @@ jobs:
     name: Making builds
     steps:
       - uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.15
+      - name: Install Gatsby CLI
+        run: npm install -g gatsby-cli@3.4.0
       - name: Make Build
         uses: jzweifel/gatsby-cli-github-action@master
         with:
@@ -38,7 +44,7 @@ jobs:
       - name: Test1
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
       - run: npm install --global mocha
       - run: npm test
 
@@ -52,7 +58,7 @@ jobs:
       - name: Test1
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
       - run: npm install mocha chai --save-dev
       - run: npm test
 
@@ -66,7 +72,7 @@ jobs:
       - name: Test3
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
       - run: npm install --global mocha
       - run: npm install unit.js
       - run: npm test
