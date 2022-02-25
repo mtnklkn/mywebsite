@@ -25,7 +25,7 @@ jobs:
         length: 7
     - run: echo $SHA
       env: 
-        SHA: ${{ steps.short-sha.outputs.sha }}
+        SHA: ${{ steps.short-sha.outputs.sha }}:latest
     - run: echo $SHA
       env: 
         SHA: ${{ env.SHA }}:latest
