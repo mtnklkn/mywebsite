@@ -28,4 +28,4 @@ jobs:
         SHA: ${{ steps.short-sha.outputs.sha }}
     - run: echo $SHA
       env: 
-        SHA: ${{ env.SHA }}
+        SHA: ${{ env.SHA }}:latest
