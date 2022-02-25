@@ -19,7 +19,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Add SHORT_SHA env property with commit short sha
-      run: | 
-        echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
-        echo $GITHUB_ENV
+    - uses: benjlevesque/short-sha@v1.2
+      id: short-sha
+      with:
+        length: 6
+    - run: echo $SHA
+      env: 
+        SHA: ${{ steps.short-sha.outputs.sha }}
+    - run: echo $SHA
+      env: 
+        SHA: ${{ env.SHA }}
